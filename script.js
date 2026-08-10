@@ -309,94 +309,148 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     // =============================================================
-    // 13. CONTACT FORM SUBMISSION
+    // 13. CONTACT FORM — DUAL ACTION: EMAIL & WHATSAPP
     // =============================================================
-    const guestbookForm = document.getElementById('guestbook-form');
 
-    if (guestbookForm) {
-        guestbookForm.addEventListener('submit', (e) => {
-            e.preventDefault();
+    const MY_EMAIL = 'aziizmusyafa18@gmail.com';
+    const MY_WA    = '6285728582004';
 
-            const name  = document.getElementById('guest-name').value.trim();
-            const email = document.getElementById('guest-email').value.trim();
-            const msg   = document.getElementById('guest-msg').value.trim();
+    /**
+     * Validasi isian form. Jika tidak valid, tampilkan shake animation
+     * dan kembalikan false.
+     */
+    function validateContactForm() {
+        const name  = document.getElementById('guest-name').value.trim();
+        const email = document.getElementById('guest-email').value.trim();
+        const msg   = document.getElementById('guest-msg').value.trim();
 
-            if (!name || !email || !msg) {
-                alert('Mohon lengkapi semua data form kontak terlebih dahulu.');
-                return;
-            }
+        const form = document.getElementById('guestbook-form');
 
-            const submitBtn = document.getElementById('submit-btn');
-            submitBtn.textContent = 'Mengirim...';
-            submitBtn.disabled = true;
+        if (!name || !email || !msg) {
+            // Shake animation visual feedback
+            form.style.transition = 'transform 0.1s ease';
+            let shakeCount = 0;
+            const shakeInterval = setInterval(() => {
+                form.style.transform = shakeCount % 2 === 0 ? 'translateX(6px)' : 'translateX(-6px)';
+                shakeCount++;
+                if (shakeCount > 5) {
+                    clearInterval(shakeInterval);
+                    form.style.transform = 'translateX(0)';
+                }
+            }, 60);
+            alert('Mohon lengkapi semua field: Nama, Email, dan Pesan.');
+            return null;
+        }
 
+        // Validasi format email sederhana
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(email)) {
+            alert('Format email tidak valid. Contoh: nama@email.com');
+            return null;
+        }
+
+        return { name, email, msg };
+    }
+
+    // Tombol KIRIM VIA EMAIL
+    const btnEmail = document.getElementById('btn-send-email');
+    if (btnEmail) {
+        btnEmail.addEventListener('click', () => {
+            const data = validateContactForm();
+            if (!data) return;
+
+            const subject  = encodeURIComponent(`[Portofolio] Pesan dari ${data.name}`);
+            const body     = encodeURIComponent(
+                `Halo Aziiz,\n\nSaya ${data.name} (${data.email}) ingin menghubungi Anda.\n\nPesan:\n${data.msg}\n\n--\nDikirim melalui form portofolio aziiz.dev`
+            );
+            const mailtoURL = `mailto:${MY_EMAIL}?subject=${subject}&body=${body}`;
+
+            // Buka mail client
+            window.location.href = mailtoURL;
+
+            // Reset form setelah jeda singkat
             setTimeout(() => {
-                showSuccessModal(name);
-                guestbookForm.reset();
-                submitBtn.textContent = 'Kirim Pesan';
-                submitBtn.disabled = false;
-            }, 1200);
+                document.getElementById('guestbook-form').reset();
+                showToast('📧 Mail client dibuka! Silakan kirim email Anda.', 'email');
+            }, 500);
         });
     }
 
-    function showSuccessModal(name) {
-        const overlay = document.createElement('div');
-        overlay.style.cssText = `
-            position: fixed; inset: 0;
-            background: rgba(5, 8, 14, 0.88);
-            display: flex; align-items: center; justify-content: center;
-            z-index: 10001; opacity: 0;
-            transition: opacity 0.4s ease;
-            backdrop-filter: blur(6px);
-        `;
+    // Tombol KIRIM VIA WHATSAPP
+    const btnWA = document.getElementById('btn-send-wa');
+    if (btnWA) {
+        btnWA.addEventListener('click', () => {
+            const data = validateContactForm();
+            if (!data) return;
 
-        const box = document.createElement('div');
-        box.style.cssText = `
-            background: var(--bg-secondary);
-            border: 1px solid var(--border-color);
-            border-radius: var(--radius-lg);
-            padding: 3rem 2.5rem;
-            text-align: center;
-            max-width: 460px;
-            width: 90%;
-            box-shadow: var(--shadow-premium), 0 0 50px rgba(16, 185, 129, 0.15);
-            transform: scale(0.9) translateY(20px);
-            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-        `;
-        box.innerHTML = `
-            <div style="width:64px;height:64px;background:rgba(16,185,129,0.1);border:1px solid rgba(16,185,129,0.25);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 1.5rem;color:var(--accent-primary);font-size:1.75rem;">✓</div>
-            <h3 style="font-size:1.6rem;font-weight:800;color:var(--text-primary);margin-bottom:0.75rem;letter-spacing:-0.02em;">Pesan Terkirim!</h3>
-            <p style="font-size:0.95rem;color:var(--text-secondary);margin-bottom:2rem;line-height:1.65;">
-                Halo <strong>${name}</strong>, terima kasih telah menghubungi saya. Pesan Anda telah terekam dan saya akan segera merespons melalui email.
-            </p>
-            <button id="close-modal-btn" style="background:linear-gradient(135deg,#10B981,#06B6D4);color:#090D16;font-weight:700;padding:0.8rem 2rem;border:none;border-radius:10px;cursor:pointer;font-size:0.95rem;">Tutup</button>
-        `;
+            const message = encodeURIComponent(
+                `Halo Aziiz! 👋\n\nSaya *${data.name}* (${data.email}) menemukan portofolio Anda dan ingin berkata:\n\n_${data.msg}_\n\nSalam,\n${data.name}`
+            );
+            const waURL = `https://wa.me/${MY_WA}?text=${message}`;
 
-        overlay.appendChild(box);
-        document.body.appendChild(overlay);
+            // Buka WhatsApp di tab baru
+            window.open(waURL, '_blank');
+
+            // Reset form
+            setTimeout(() => {
+                document.getElementById('guestbook-form').reset();
+                showToast('💬 WhatsApp dibuka! Silakan kirim pesan Anda.', 'wa');
+            }, 500);
+        });
+    }
+
+    /**
+     * Toast Notification kecil di pojok kanan bawah
+     * sebagai konfirmasi aksi tanpa mengganggu UX
+     */
+    function showToast(message, type = 'email') {
+        const existing = document.querySelector('.toast-notif');
+        if (existing) existing.remove();
+
+        const colors = {
+            email: 'linear-gradient(135deg, #10B981, #06B6D4)',
+            wa:    'linear-gradient(135deg, #25D366, #128C7E)'
+        };
+
+        const toast = document.createElement('div');
+        toast.className = 'toast-notif';
+        toast.style.cssText = `
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background: ${colors[type]};
+            color: #fff;
+            font-family: var(--font-body);
+            font-weight: 600;
+            font-size: 0.9rem;
+            padding: 1rem 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+            z-index: 20000;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.35s ease, transform 0.35s cubic-bezier(0.16,1,0.3,1);
+            max-width: 320px;
+            line-height: 1.5;
+        `;
+        toast.textContent = message;
+        document.body.appendChild(toast);
 
         // Animate in
         requestAnimationFrame(() => {
             requestAnimationFrame(() => {
-                overlay.style.opacity = '1';
-                box.style.transform = 'scale(1) translateY(0)';
+                toast.style.opacity = '1';
+                toast.style.transform = 'translateY(0)';
             });
         });
 
-        document.getElementById('close-modal-btn').addEventListener('click', () => {
-            overlay.style.opacity = '0';
-            box.style.transform = 'scale(0.9) translateY(20px)';
-            setTimeout(() => overlay.remove(), 400);
-        });
-
-        // Also close on backdrop click
-        overlay.addEventListener('click', (e) => {
-            if (e.target === overlay) {
-                overlay.style.opacity = '0';
-                box.style.transform = 'scale(0.9) translateY(20px)';
-                setTimeout(() => overlay.remove(), 400);
-            }
-        });
+        // Auto dismiss after 4 seconds
+        setTimeout(() => {
+            toast.style.opacity = '0';
+            toast.style.transform = 'translateY(20px)';
+            setTimeout(() => toast.remove(), 350);
+        }, 4000);
     }
 
 }); // End DOMContentLoaded
+

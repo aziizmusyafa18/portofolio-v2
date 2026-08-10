@@ -1111,6 +1111,33 @@ footer {
     }
 }
 
+/* WhatsApp Button */
+.btn-wa {
+    background: linear-gradient(135deg, #25D366, #128C7E);
+    color: #fff !important;
+    box-shadow: 0 4px 14px rgba(37, 211, 102, 0.25);
+}
+
+.btn-wa:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 22px rgba(37, 211, 102, 0.4);
+    color: #fff;
+}
+
+/* Dual Action Buttons Layout */
+.contact-action-btns {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-top: 1.25rem;
+}
+
+@media (max-width: 480px) {
+    .contact-action-btns {
+        grid-template-columns: 1fr;
+    }
+}
+
 @media (max-width: 768px) {
     header {
         padding: 1.25rem 5%;
