@@ -1,0 +1,870 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aziiz Musyafa — Web Developer &amp; Backend Engineer</title>
+    
+    <!-- Meta SEO -->
+    <meta name="description" content="Portofolio profesional Aziiz Musyafa, Web Developer tingkat menengah (Intermediate) spesialis Laravel, PHP, dan pengembangan sistem web modern.">
+    <meta name="keywords" content="Aziiz Musyafa, Web Developer, Backend Engineer, Laravel Developer, PHP, Database MySQL, Web Portofolio, Modern Portfolio">
+    <meta name="author" content="Aziiz Musyafa">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Aziiz Musyafa — Web Developer &amp; Backend Engineer">
+    <meta property="og:description" content="Portofolio modern dan minimalis yang memadukan keahlian backend kokoh dengan antarmuka frontend yang elegan.">
+    <meta property="og:image" content="https://avatars.githubusercontent.com/u/212663677?v=4">
+    <meta property="og:type" content="website">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚡</text></svg>">
+
+    <!-- CSS Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Scroll Progress Bar -->
+    <div id="scroll-progress"></div>
+
+    <!-- Mouse Spotlight -->
+    <div id="mouse-spotlight"></div>
+
+    <!-- Header & Navigasi -->
+    <header id="header">
+        <div class="logo">
+            <span class="logo-icon">&lt;/&gt;</span>
+            <span class="logo-text">luthfie.dev</span>
+        </div>
+        
+        <nav>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="#hero" class="active">Beranda</a></li>
+                <li><a href="#about">Tentang</a></li>
+                <li><a href="#skills">Keahlian</a></li>
+                <li><a href="#portfolio">Portofolio</a></li>
+                <li><a href="#contact">Kontak</a></li>
+            </ul>
+        </nav>
+
+        <div class="header-actions">
+            <!-- Theme Toggle Button -->
+            <button class="theme-toggle-btn" id="theme-toggle" aria-label="Ganti Tema">
+                <!-- Moon Icon -->
+                <svg class="moon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                </svg>
+                <!-- Sun Icon -->
+                <svg class="sun" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="5"></circle>
+                    <line x1="12" y1="1" x2="12" y2="3"></line>
+                    <line x1="12" y1="21" x2="12" y2="23"></line>
+                    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                    <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                    <line x1="1" y1="12" x2="3" y2="12"></line>
+                    <line x1="21" y1="12" x2="23" y2="12"></line>
+                    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                    <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                </svg>
+            </button>
+            <button class="mobile-nav-toggle" id="mobile-toggle" aria-label="Menu">&#9776;</button>
+        </div>
+    </header>
+
+    <!-- =============================================
+         HERO SECTION
+    ============================================== -->
+    <section id="hero" class="hero-section">
+        <div class="hero-content reveal-right">
+            <div class="hero-badge">
+                <span class="pulse-dot"></span>
+                Open for Collaboration &amp; Freelance
+            </div>
+            <h1 class="hero-title">Hi, I am <br><span>Aziiz Musyafa</span></h1>
+            <p class="hero-desc">
+                Seorang <strong>Intermediate Web Developer</strong> yang berfokus membangun sistem backend modular, arsitektur database teroptimasi, dan antarmuka web modern yang responsif untuk kebutuhan bisnis industri.
+            </p>
+            <div class="hero-buttons">
+                <a href="#portfolio" class="btn btn-primary">Lihat Portofolio</a>
+                <a href="#contact" class="btn btn-secondary">Hubungi Saya</a>
+            </div>
+        </div>
+        
+        <div class="hero-visual reveal-left">
+            <!-- Mock Terminal Code Visual with Typing Animation -->
+            <div class="terminal-card">
+                <div class="terminal-header">
+                    <div class="terminal-buttons">
+                        <span class="terminal-btn red"></span>
+                        <span class="terminal-btn yellow"></span>
+                        <span class="terminal-btn green"></span>
+                    </div>
+                    <div class="terminal-title">developer.js</div>
+                </div>
+                <div class="terminal-body" id="terminal-output">
+                    <!-- Typing animation will render here via JS -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- =============================================
+         ABOUT SECTION
+    ============================================== -->
+    <section id="about">
+        <h2 class="reveal-up">Tentang &amp; Fokus</h2>
+        
+        <div class="about-container">
+            <div class="about-text reveal-right">
+                <p>
+                    Saya adalah pengembang web dengan spesialisasi utama di bidang <strong>Backend Engineering</strong> menggunakan ekosistem PHP/Laravel. Saya gemar memecahkan masalah logika bisnis yang kompleks, mengoptimalkan kueri database relasional, dan mendesain REST API yang aman dan terstandardisasi.
+                </p>
+                <p>
+                    Meskipun fokus pada backend, saya juga memiliki pemahaman mendalam di area <strong>Frontend Engineering</strong>. Pengalaman saya membangun landing page interaktif bisnis dan undangan digital membekali saya dengan kemampuan menyusun tata letak responsif menggunakan CSS Grid/Flexbox dengan penulisan kode JavaScript native yang efisien.
+                </p>
+                
+                <!-- Quick Stats Grid -->
+                <div class="stats-grid">
+                    <div class="stat-card reveal-zoom">
+                        <div class="stat-number" data-target="3">0</div>
+                        <div class="stat-label">Tahun Pengalaman</div>
+                    </div>
+                    <div class="stat-card reveal-zoom">
+                        <div class="stat-number" data-target="20">0</div>
+                        <div class="stat-label">Repositori GitHub</div>
+                    </div>
+                    <div class="stat-card reveal-zoom">
+                        <div class="stat-number" data-target="15">0</div>
+                        <div class="stat-label">Proyek Selesai</div>
+                    </div>
+                    <div class="stat-card reveal-zoom">
+                        <div class="stat-number" data-target="10">0</div>
+                        <div class="stat-label">Klien Puas</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="about-visual reveal-left">
+                <div class="about-quote">
+                    "Mengubah alur logika bisnis yang rumit menjadi arsitektur sistem informasi yang bersih, terstruktur, dan mudah dirawat."
+                </div>
+                <div class="terminal-body" style="background: rgba(0,0,0,0.15); border: 1px solid var(--border-color); border-radius: var(--radius-md); font-family: var(--font-mono); font-size: 0.8rem; padding: 1.25rem;">
+                    <p><span class="code-comment">// Prinsip Utama Penulisan Kode</span></p>
+                    <p><span class="code-keyword">function</span> <span class="code-property">optimizeSystem</span>() {</p>
+                    <p>&nbsp;&nbsp;return DRY_Code &amp;&amp;</p>
+                    <p>&nbsp;&nbsp;&nbsp;&nbsp;Modular_Architecture &amp;&amp;</p>
+                    <p>&nbsp;&nbsp;&nbsp;&nbsp;Index_Caching_Database;</p>
+                    <p>}</p>
+                </div>
+                <p style="font-size:0.8rem; color: var(--text-muted);">
+                    📍 Jawa Tengah, Indonesia &nbsp;·&nbsp; 🕒 Remote-Friendly
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- =============================================
+         SKILLS SECTION
+    ============================================== -->
+    <section id="skills">
+        <h2 class="reveal-up">Keahlian Teknis</h2>
+        
+        <div class="skills-container">
+            <!-- Backend & Databases -->
+            <div class="reveal-right">
+                <h3 class="skills-category-title">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <path d="M4 7V4c0-1.1.9-2 2-2h12c1.1 0 2 .9 2 2v3M4 17v3c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2v-3" stroke-linecap="round"/>
+                        <rect x="2" y="7" width="20" height="10" rx="2" stroke-linejoin="round"/>
+                        <line x1="6" y1="12" x2="10" y2="12" stroke-linecap="round"/>
+                    </svg>
+                    Backend &amp; Sistem Database
+                </h3>
+                <div class="skill-list">
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span class="skill-name">Laravel Framework (PHP)</span>
+                            <span class="skill-percentage">90%</span>
+                        </div>
+                        <div class="skill-bar-bg">
+                            <div class="skill-bar-fill" data-percentage="90%"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span class="skill-name">PHP Native &amp; MVC Design Pattern</span>
+                            <span class="skill-percentage">85%</span>
+                        </div>
+                        <div class="skill-bar-bg">
+                            <div class="skill-bar-fill" data-percentage="85%"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span class="skill-name">MySQL &amp; Relational Database Design</span>
+                            <span class="skill-percentage">80%</span>
+                        </div>
+                        <div class="skill-bar-bg">
+                            <div class="skill-bar-fill" data-percentage="80%"></div>
+                        </div>
+                    </div>
+
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span class="skill-name">Node.js &amp; Express.js</span>
+                            <span class="skill-percentage">72%</span>
+                        </div>
+                        <div class="skill-bar-bg">
+                            <div class="skill-bar-fill" data-percentage="72%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Frontend & UI Engineering -->
+            <div class="reveal-left">
+                <h3 class="skills-category-title">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <rect x="2" y="3" width="20" height="14" rx="2" stroke-linejoin="round"/>
+                        <line x1="8" y1="21" x2="16" y2="21" stroke-linecap="round"/>
+                        <line x1="12" y1="17" x2="12" y2="21" stroke-linecap="round"/>
+                    </svg>
+                    Frontend &amp; UI Engineering
+                </h3>
+                <div class="skill-list">
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span class="skill-name">HTML5 / CSS3 / Vanilla JS (ES6+)</span>
+                            <span class="skill-percentage">88%</span>
+                        </div>
+                        <div class="skill-bar-bg">
+                            <div class="skill-bar-fill" data-percentage="88%"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span class="skill-name">CSS Layouts (Grid, Flexbox, Transitions)</span>
+                            <span class="skill-percentage">92%</span>
+                        </div>
+                        <div class="skill-bar-bg">
+                            <div class="skill-bar-fill" data-percentage="92%"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span class="skill-name">Responsive Web Design &amp; UX</span>
+                            <span class="skill-percentage">85%</span>
+                        </div>
+                        <div class="skill-bar-bg">
+                            <div class="skill-bar-fill" data-percentage="85%"></div>
+                        </div>
+                    </div>
+
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span class="skill-name">Vue.js / Frontend Framework</span>
+                            <span class="skill-percentage">65%</span>
+                        </div>
+                        <div class="skill-bar-bg">
+                            <div class="skill-bar-fill" data-percentage="65%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tools / Other Skills as Badges -->
+        <div class="tools-row reveal-up" style="margin-top: 4rem; text-align: center;">
+            <p style="color: var(--text-muted); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 1.5rem;">Tools &amp; Ekosistem Lainnya</p>
+            <div style="display: flex; flex-wrap: wrap; gap: 0.75rem; justify-content: center;">
+                <span class="tech-tag" style="padding: 0.4rem 1rem; font-size: 0.8rem;">Git &amp; GitHub</span>
+                <span class="tech-tag" style="padding: 0.4rem 1rem; font-size: 0.8rem;">Blade Template</span>
+                <span class="tech-tag" style="padding: 0.4rem 1rem; font-size: 0.8rem;">REST API</span>
+                <span class="tech-tag" style="padding: 0.4rem 1rem; font-size: 0.8rem;">Eloquent ORM</span>
+                <span class="tech-tag" style="padding: 0.4rem 1rem; font-size: 0.8rem;">Gemini API</span>
+                <span class="tech-tag" style="padding: 0.4rem 1rem; font-size: 0.8rem;">Vercel / GitHub Pages</span>
+                <span class="tech-tag" style="padding: 0.4rem 1rem; font-size: 0.8rem;">Bootstrap CSS</span>
+                <span class="tech-tag" style="padding: 0.4rem 1rem; font-size: 0.8rem;">Linux CLI</span>
+                <span class="tech-tag" style="padding: 0.4rem 1rem; font-size: 0.8rem;">VS Code</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- =============================================
+         PORTFOLIO SECTION
+    ============================================== -->
+    <section id="portfolio">
+        <h2 class="reveal-up">Semua Proyek &amp; Karya</h2>
+        
+        <!-- Filter Buttons -->
+        <div class="portfolio-filter reveal-up">
+            <button class="filter-btn active" data-filter="all">Semua</button>
+            <button class="filter-btn" data-filter="sistem">Sistem Web</button>
+            <button class="filter-btn" data-filter="undangan">Undangan Digital</button>
+            <button class="filter-btn" data-filter="warkop">Warkop/Kafe</button>
+            <button class="filter-btn" data-filter="chatbot">AI/Chatbot</button>
+            <button class="filter-btn" data-filter="lainnya">Lainnya</button>
+        </div>
+
+        <!-- Projects Grid -->
+        <div class="projects-grid" id="projects-grid">
+
+            <!-- ======= SISTEM WEB ======= -->
+
+            <!-- 1. Restaurant Management System -->
+            <div class="project-card reveal-up" data-category="sistem">
+                <span class="project-category">Sistem Web</span>
+                <h3 class="project-title">Restaurant Management System</h3>
+                <p class="project-desc">
+                    Aplikasi manajemen operasional restoran komprehensif dengan Laravel — mencakup manajemen inventaris dapur, pemesanan meja, dan sistem kasir penjualan.
+                </p>
+                <div class="project-tech">
+                    <span class="tech-tag">Laravel</span>
+                    <span class="tech-tag">Blade</span>
+                    <span class="tech-tag">MySQL</span>
+                    <span class="tech-tag">MVC</span>
+                </div>
+                <div class="project-links">
+                    <a href="https://github.com/aziizmusyafa18/restaurant-management-system" target="_blank" class="project-link">
+                        <svg width="16" height="16" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                        Source Code
+                    </a>
+                </div>
+            </div>
+
+            <!-- 2. Sistem Pelaporan Mahasiswa -->
+            <div class="project-card reveal-up" data-category="sistem" style="transition-delay: 0.1s">
+                <span class="project-category">Sistem Web</span>
+                <h3 class="project-title">Sistem Pelaporan Mahasiswa</h3>
+                <p class="project-desc">
+                    Portal rekapitulasi pengaduan dan pelaporan masalah mahasiswa. Dibangun dengan backend PHP yang mengamankan validasi form serta struktur manajemen basis data relasional.
+                </p>
+                <div class="project-tech">
+                    <span class="tech-tag">PHP Native</span>
+                    <span class="tech-tag">Bootstrap CSS</span>
+                    <span class="tech-tag">MySQL</span>
+                </div>
+                <div class="project-links">
+                    <a href="https://github.com/aziizmusyafa18/sistem-pelaporan-mahasiswa" target="_blank" class="project-link">
+                        <svg width="16" height="16" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                        Source Code
+                    </a>
+                </div>
+            </div>
+
+            <!-- 3. Absen Digital -->
+            <div class="project-card reveal-up" data-category="sistem" style="transition-delay: 0.2s">
+                <span class="project-category">Sistem Web</span>
+                <h3 class="project-title">Absen Digital</h3>
+                <p class="project-desc">
+                    Sistem absensi digital berbasis web yang menyederhanakan pencatatan kehadiran karyawan atau siswa secara real-time dengan validasi dan pelaporan terintegrasi.
+                </p>
+                <div class="project-tech">
+                    <span class="tech-tag">HTML5</span>
+                    <span class="tech-tag">JavaScript</span>
+                    <span class="tech-tag">LocalStorage</span>
+                </div>
+                <div class="project-links">
+                    <a href="https://github.com/aziizmusyafa18/absen-digital" target="_blank" class="project-link">
+                        <svg width="16" height="16" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                        Source Code
+                    </a>
+                </div>
+            </div>
+
+            <!-- 4. Laravel Catatan Keuangan -->
+            <div class="project-card reveal-zoom" data-category="sistem" style="transition-delay: 0.05s">
+                <span class="project-category">Sistem Web</span>
+                <h3 class="project-title">Laravel Catatan Keuangan</h3>
+                <p class="project-desc">
+                    Aplikasi pembukuan keuangan pribadi berbasis Laravel. Mencatat pemasukan, pengeluaran, mengkategorikannya, dan menampilkan laporan ringkasan visual sederhana.
+                </p>
+                <div class="project-tech">
+                    <span class="tech-tag">Laravel</span>
+                    <span class="tech-tag">PHP</span>
+                    <span class="tech-tag">MySQL</span>
+                    <span class="tech-tag">Eloquent ORM</span>
+                </div>
+                <div class="project-links">
+                    <a href="https://github.com/aziizmusyafa18/laravel-catatan-keuangan" target="_blank" class="project-link">
+                        <svg width="16" height="16" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                        Source Code
+                    </a>
+                </div>
+            </div>
+
+            <!-- 5. Sistem Informasi SMK -->
+            <div class="project-card reveal-zoom" data-category="sistem" style="transition-delay: 0.1s">
+                <span class="project-category">Sistem Web</span>
+                <h3 class="project-title">Sistem Informasi SMK</h3>
+                <p class="project-desc">
+                    Platform informasi akademik khusus SMK yang mengelola data siswa, guru, jadwal pelajaran, nilai ujian, dan laporan presensi dalam satu ekosistem terintegrasi.
+                </p>
+                <div class="project-tech">
+                    <span class="tech-tag">Laravel</span>
+                    <span class="tech-tag">Blade</span>
+                    <span class="tech-tag">Bootstrap</span>
+                    <span class="tech-tag">MySQL</span>
+                </div>
+                <div class="project-links">
+                    <a href="https://github.com/aziizmusyafa18/sistem-informasi-smk" target="_blank" class="project-link">
+                        <svg width="16" height="16" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                        Source Code
+                    </a>
+                </div>
+            </div>
+
+            <!-- 6. Sistem Peminjaman -->
+            <div class="project-card reveal-zoom" data-category="sistem" style="transition-delay: 0.15s">
+                <span class="project-category">Sistem Web</span>
+                <h3 class="project-title">Sistem Peminjaman</h3>
+                <p class="project-desc">
+                    Sistem manajemen peminjaman barang/aset berbasis web dengan Express.js. Menangani alur pengajuan, persetujuan, pemantauan status peminjaman, dan notifikasi pengembalian.
+                </p>
+                <div class="project-tech">
+                    <span class="tech-tag">HTML5</span>
+                    <span class="tech-tag">Express.js</span>
+                    <span class="tech-tag">Node.js</span>
+                    <span class="tech-tag">REST API</span>
+                </div>
+                <div class="project-links">
+                    <a href="https://github.com/aziizmusyafa18/sistem-peminjaman" target="_blank" class="project-link">
+                        <svg width="16" height="16" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                        Source Code
+                    </a>
+                </div>
+            </div>
+
+            <!-- 7. Romansa (Laravel + Vue) -->
+            <div class="project-card reveal-left" data-category="sistem">
+                <span class="project-category">Sistem Web</span>
+                <h3 class="project-title">Romansa</h3>
+                <p class="project-desc">
+                    Aplikasi web full-stack dengan arsitektur modern Laravel (backend API) dikombinasikan Vue.js (frontend SPA) untuk membangun pengalaman pengguna yang dinamis dan responsif.
+                </p>
+                <div class="project-tech">
+                    <span class="tech-tag">Laravel</span>
+                    <span class="tech-tag">Vue.js</span>
+                    <span class="tech-tag">REST API</span>
+                    <span class="tech-tag">MySQL</span>
+                </div>
+                <div class="project-links">
+                    <a href="https://github.com/aziizmusyafa18/Romansa" target="_blank" class="project-link">
+                        <svg width="16" height="16" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                        Source Code
+                    </a>
+                </div>
+            </div>
+
+            <!-- 8. SPP DISKOMINFO -->
+            <div class="project-card reveal-left" data-category="sistem" style="transition-delay: 0.1s">
+                <span class="project-category">Sistem Web</span>
+                <h3 class="project-title">SPP DISKOMINFO</h3>
+                <p class="project-desc">
+                    Sistem Pengelolaan dan Pembayaran SPP (Sumbangan Pembinaan Pendidikan) untuk lembaga instansi pemerintahan Diskominfo, dengan fitur laporan bulanan otomatis dan manajemen tunggakan.
+                </p>
+                <div class="project-tech">
+                    <span class="tech-tag">PHP</span>
+                    <span class="tech-tag">MySQL</span>
+                    <span class="tech-tag">Bootstrap</span>
+                </div>
+                <div class="project-links">
+                    <a href="https://github.com/aziizmusyafa18/SPP-DISKOMINFO-1" target="_blank" class="project-link">
+                        <svg width="16" height="16" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                        Source Code
+                    </a>
+                    <a href="https://sppdiskominfo.vercel.app" target="_blank" class="project-link">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                        Live Demo
+                    </a>
+                </div>
+            </div>
+
+            <!-- 9. Template Informasi Akademik -->
+            <div class="project-card reveal-left" data-category="sistem" style="transition-delay: 0.2s">
+                <span class="project-category">Sistem Web</span>
+                <h3 class="project-title">Template Informasi Akademik</h3>
+                <p class="project-desc">
+                    Template starter kit sistem informasi akademik lengkap berbasis PHP, dirancang untuk memudahkan pengembangan portal akademis baru dengan struktur database yang teroptimasi (⭐ 1 star).
+                </p>
+                <div class="project-tech">
+                    <span class="tech-tag">PHP</span>
+                    <span class="tech-tag">MySQL</span>
+                    <span class="tech-tag">Template</span>
+                </div>
+                <div class="project-links">
+                    <a href="https://github.com/aziizmusyafa18/template-informasi-akademik" target="_blank" class="project-link">
+                        <svg width="16" height="16" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                        Source Code
+                    </a>
+                </div>
+            </div>
+
+            <!-- ======= UNDANGAN DIGITAL ======= -->
+
+            <!-- 10. Hafid & Intan Wedding -->
+            <div class="project-card reveal-up" data-category="undangan">
+                <span class="project-category">Undangan Digital</span>
+                <h3 class="project-title">Hafid &amp; Intan Wedding</h3>
+                <p class="project-desc">
+                    Website undangan pernikahan digital yang kaya fitur — buku tamu interaktif, RSVP, peta lokasi, galeri multimedia, dan desain responsif berkinerja tinggi.
+                </p>
+                <div class="project-tech">
+                    <span class="tech-tag">HTML5</span>
+                    <span class="tech-tag">CSS3</span>
+                    <span class="tech-tag">JS Native</span>
+                    <span class="tech-tag">Responsive UX</span>
+                </div>
+                <div class="project-links">
+                    <a href="https://github.com/aziizmusyafa18/hafidintan-wedding" target="_blank" class="project-link">
+                        <svg width="16" height="16" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                        Source Code
+                    </a>
+                </div>
+            </div>
+
+            <!-- 11. Dwifany Wedding -->
+            <div class="project-card reveal-up" data-category="undangan" style="transition-delay: 0.1s">
+                <span class="project-category">Undangan Digital</span>
+                <h3 class="project-title">Dwifany Wedding</h3>
+                <p class="project-desc">
+                    Platform undangan pernikahan digital dengan estetika minimalis elegan, performa rendering cepat, dan form RSVP tamu yang interaktif dan mudah digunakan.
+                </p>
+                <div class="project-tech">
+                    <span class="tech-tag">HTML5</span>
+                    <span class="tech-tag">CSS Animations</span>
+                    <span class="tech-tag">JS ES6</span>
+                </div>
+                <div class="project-links">
+                    <a href="https://github.com/aziizmusyafa18/dwifany-wedding" target="_blank" class="project-link">
+                        <svg width="16" height="16" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                        Source Code
+                    </a>
+                </div>
+            </div>
+
+            <!-- 12. Wedding Netflix Style -->
+            <div class="project-card reveal-up" data-category="undangan" style="transition-delay: 0.2s">
+                <span class="project-category">Undangan Digital</span>
+                <h3 class="project-title">Wedding Netflix Style</h3>
+                <p class="project-desc">
+                    Undangan pernikahan digital dengan tampilan unik bergaya streaming Netflix — desain layar pembuka menarik, trailer video pengantin, dan navigasi yang imersif.
+                </p>
+                <div class="project-tech">
+                    <span class="tech-tag">CSS</span>
+                    <span class="tech-tag">JavaScript</span>
+                    <span class="tech-tag">Netflix Theme</span>
+                </div>
+                <div class="project-links">
+                    <a href="https://github.com/aziizmusyafa18/wedding-netflix" target="_blank" class="project-link">
+                        <svg width="16" height="16" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                        Source Code
+                    </a>
+                    <a href="https://aziizmusyafa18.github.io/wedding-netflix/" target="_blank" class="project-link">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                        Live Demo
+                    </a>
+                </div>
+            </div>
+
+            <!-- 13. Zana Wedding -->
+            <div class="project-card reveal-zoom" data-category="undangan">
+                <span class="project-category">Undangan Digital</span>
+                <h3 class="project-title">Zana Wedding</h3>
+                <p class="project-desc">
+                    Website undangan pernikahan Zana — menggabungkan animasi scroll yang halus, galeri foto, countdown timer pernikahan, dan sistem konfirmasi tamu berbasis web.
+                </p>
+                <div class="project-tech">
+                    <span class="tech-tag">HTML5</span>
+                    <span class="tech-tag">CSS3</span>
+                    <span class="tech-tag">Vanilla JS</span>
+                </div>
+                <div class="project-links">
+                    <a href="https://github.com/aziizmusyafa18/zana-wedding" target="_blank" class="project-link">
+                        <svg width="16" height="16" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                        Source Code
+                    </a>
+                </div>
+            </div>
+
+            <!-- 14. Birthday New -->
+            <div class="project-card reveal-zoom" data-category="undangan" style="transition-delay: 0.1s">
+                <span class="project-category">Undangan Digital</span>
+                <h3 class="project-title">Birthday Greetings New</h3>
+                <p class="project-desc">
+                    Halaman ucapan ulang tahun digital interaktif dengan animasi confetti, musik latar, dan pesan personal dinamis yang dapat dikustomisasi sesuai kebutuhan.
+                </p>
+                <div class="project-tech">
+                    <span class="tech-tag">JavaScript</span>
+                    <span class="tech-tag">CSS Animations</span>
+                    <span class="tech-tag">Canvas API</span>
+                </div>
+                <div class="project-links">
+                    <a href="https://github.com/aziizmusyafa18/birthdaynew" target="_blank" class="project-link">
+                        <svg width="16" height="16" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                        Source Code
+                    </a>
+                </div>
+            </div>
+
+            <!-- 15. Birthday Greatings -->
+            <div class="project-card reveal-zoom" data-category="undangan" style="transition-delay: 0.2s">
+                <span class="project-category">Undangan Digital</span>
+                <h3 class="project-title">Birthday Greatings</h3>
+                <p class="project-desc">
+                    Template ucapan ulang tahun digital dengan desain CSS yang menarik, efek animasi entrance dan transisi halaman yang halus untuk pengiriman pesan spesial.
+                </p>
+                <div class="project-tech">
+                    <span class="tech-tag">CSS3</span>
+                    <span class="tech-tag">HTML5</span>
+                    <span class="tech-tag">Animations</span>
+                </div>
+                <div class="project-links">
+                    <a href="https://github.com/aziizmusyafa18/birthdaygreatings" target="_blank" class="project-link">
+                        <svg width="16" height="16" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                        Source Code
+                    </a>
+                </div>
+            </div>
+
+            <!-- ======= WARKOP / KAFE ======= -->
+
+            <!-- 16. Kafe Mr. Klasik -->
+            <div class="project-card reveal-right" data-category="warkop">
+                <span class="project-category">Warkop/Kafe</span>
+                <h3 class="project-title">Kafe Mr. Klasik</h3>
+                <p class="project-desc">
+                    Landing page modern untuk Kedai Kopi Mr. Klasik — desain retro modern, navigasi menu interaktif, dan tombol reservasi langsung ke WhatsApp admin kafe.
+                </p>
+                <div class="project-tech">
+                    <span class="tech-tag">HTML5</span>
+                    <span class="tech-tag">CSS3 Layouts</span>
+                    <span class="tech-tag">Responsive UI</span>
+                    <span class="tech-tag">Landing Page</span>
+                </div>
+                <div class="project-links">
+                    <a href="https://github.com/aziizmusyafa18/kafe-mr.klasik" target="_blank" class="project-link">
+                        <svg width="16" height="16" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                        Source Code
+                    </a>
+                </div>
+            </div>
+
+            <!-- 17. Cafe Mr. Klasik Fullservice -->
+            <div class="project-card reveal-right" data-category="warkop" style="transition-delay: 0.12s">
+                <span class="project-category">Warkop/Kafe</span>
+                <h3 class="project-title">Cafe Mr. Klasik Fullservice</h3>
+                <p class="project-desc">
+                    Pengembangan berkelanjutan Mr. Klasik dengan penambahan fungsionalitas pemesanan mandiri (self-service) berbasis web, validasi form, dan integrasi kasir digital.
+                </p>
+                <div class="project-tech">
+                    <span class="tech-tag">HTML5</span>
+                    <span class="tech-tag">CSS Flex/Grid</span>
+                    <span class="tech-tag">JS Native</span>
+                    <span class="tech-tag">Web App</span>
+                </div>
+                <div class="project-links">
+                    <a href="https://github.com/aziizmusyafa18/cafe-mr.klasik" target="_blank" class="project-link">
+                        <svg width="16" height="16" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                        Source Code
+                    </a>
+                </div>
+            </div>
+
+            <!-- ======= AI / CHATBOT ======= -->
+
+            <!-- 18. Chatbot with Gemini -->
+            <div class="project-card reveal-up" data-category="chatbot">
+                <span class="project-category">AI / Chatbot</span>
+                <h3 class="project-title">Chatbot with Gemini API</h3>
+                <p class="project-desc">
+                    Aplikasi chatbot web cerdas yang ditenagai oleh Google Gemini API — antarmuka percakapan interaktif, streaming respons real-time, dan penyimpanan riwayat obrolan lokal.
+                </p>
+                <div class="project-tech">
+                    <span class="tech-tag">JavaScript</span>
+                    <span class="tech-tag">Gemini API</span>
+                    <span class="tech-tag">HTML5</span>
+                    <span class="tech-tag">AI Integration</span>
+                </div>
+                <div class="project-links">
+                    <a href="https://github.com/aziizmusyafa18/chatbot-with-gemini" target="_blank" class="project-link">
+                        <svg width="16" height="16" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                        Source Code
+                    </a>
+                </div>
+            </div>
+
+            <!-- ======= LAINNYA ======= -->
+
+            <!-- 19. Pemrograman Visual -->
+            <div class="project-card reveal-right" data-category="lainnya">
+                <span class="project-category">Lainnya</span>
+                <h3 class="project-title">Pemrograman Visual</h3>
+                <p class="project-desc">
+                    Eksperimen dan proyek pembelajaran berbasis pemrograman visual menggunakan PHP, mengeksplorasi pengolahan gambar, manipulasi grafis, dan rendering antarmuka dinamis.
+                </p>
+                <div class="project-tech">
+                    <span class="tech-tag">PHP</span>
+                    <span class="tech-tag">Visual Programming</span>
+                    <span class="tech-tag">GD Library</span>
+                </div>
+                <div class="project-links">
+                    <a href="https://github.com/aziizmusyafa18/pemrograman-visual" target="_blank" class="project-link">
+                        <svg width="16" height="16" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                        Source Code
+                    </a>
+                </div>
+            </div>
+
+            <!-- 20. GitHub Profile README -->
+            <div class="project-card reveal-right" data-category="lainnya" style="transition-delay: 0.12s">
+                <span class="project-category">Lainnya</span>
+                <h3 class="project-title">GitHub Profile README</h3>
+                <p class="project-desc">
+                    Halaman profil GitHub yang dikustomisasi penuh dengan README dinamis — menampilkan statistik kontribusi, badge teknologi, dan ringkasan proyek secara visual menarik.
+                </p>
+                <div class="project-tech">
+                    <span class="tech-tag">Markdown</span>
+                    <span class="tech-tag">GitHub Actions</span>
+                    <span class="tech-tag">Profile README</span>
+                </div>
+                <div class="project-links">
+                    <a href="https://github.com/aziizmusyafa18/aziizmusyafa18" target="_blank" class="project-link">
+                        <svg width="16" height="16" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                        Lihat Profil
+                    </a>
+                    <a href="https://github.com/aziizmusyafa18" target="_blank" class="project-link">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                        GitHub
+                    </a>
+                </div>
+            </div>
+
+        </div><!-- End projects-grid -->
+
+        <!-- Call to action to visit GitHub -->
+        <div class="portfolio-actions reveal-up">
+            <a href="https://github.com/aziizmusyafa18" target="_blank" class="btn btn-secondary">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+                Lihat Semua di GitHub
+            </a>
+        </div>
+    </section>
+
+    <!-- =============================================
+         CONTACT SECTION
+    ============================================== -->
+    <section id="contact">
+        <h2 class="reveal-up">Hubungi Saya</h2>
+        
+        <div class="contact-container">
+            <!-- Left Info Panel -->
+            <div class="contact-info-panel reveal-right">
+                <p class="contact-note">
+                    Saya selalu terbuka untuk kolaborasi bisnis, peluang karir, maupun diskusi seputar arsitektur rekayasa perangkat lunak web. Silakan hubungi saya melalui jalur di bawah ini.
+                </p>
+                
+                <div class="contact-details">
+                    <div class="contact-method">
+                        <div class="contact-icon">
+                            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                                <polyline points="22,6 12,13 2,6"/>
+                            </svg>
+                        </div>
+                        <div class="contact-method-text">
+                            <h4>Email Resmi</h4>
+                            <p><a href="mailto:luthfimusyafa18@gmail.com">luthfimusyafa18@gmail.com</a></p>
+                        </div>
+                    </div>
+
+                    <div class="contact-method">
+                        <div class="contact-icon">
+                            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                                <circle cx="12" cy="10" r="3"/>
+                            </svg>
+                        </div>
+                        <div class="contact-method-text">
+                            <h4>Lokasi</h4>
+                            <p>Jawa Timur, Indonesia</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-method">
+                        <div class="contact-icon">
+                            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+                            </svg>
+                        </div>
+                        <div class="contact-method-text">
+                            <h4>GitHub</h4>
+                            <p><a href="https://github.com/aziizmusyafa18" target="_blank">@aziizmusyafa18</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Form Panel -->
+            <div class="contact-form-panel reveal-left">
+                <form id="guestbook-form" class="contact-form" novalidate>
+                    <div class="form-group">
+                        <label for="guest-name">Nama Lengkap</label>
+                        <input type="text" id="guest-name" class="form-control" placeholder="Tulis nama Anda..." required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="guest-email">Email</label>
+                        <input type="email" id="guest-email" class="form-control" placeholder="nama@email.com" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="guest-msg">Pesan Anda</label>
+                        <textarea id="guest-msg" class="form-control" placeholder="Tuliskan tawaran kerja sama, kolaborasi, atau pesan lainnya..." required></textarea>
+                    </div>
+
+                    <button type="submit" id="submit-btn" class="btn btn-primary" style="margin-top: 1rem; width: 100%;">
+                        Kirim Pesan
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-logo">
+            <span class="footer-logo-text">&lt;luthfie.<span>dev</span>/&gt;</span>
+        </div>
+        
+        <ul class="footer-nav">
+            <li><a href="#hero">Beranda</a></li>
+            <li><a href="#about">Tentang</a></li>
+            <li><a href="#skills">Keahlian</a></li>
+            <li><a href="#portfolio">Portofolio</a></li>
+            <li><a href="#contact">Kontak</a></li>
+        </ul>
+
+        <div class="footer-socials">
+            <a href="https://github.com/aziizmusyafa18" target="_blank" class="social-icon" aria-label="GitHub">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+            </a>
+            <a href="mailto:aziizmusyafa18@gmail.com" class="social-icon" aria-label="Email">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            </a>
+        </div>
+
+        <p class="copyright">
+            &copy; 2026 <span>Aziiz Musyafa</span>. All Rights Reserved.<br>
+            Designed &amp; Developed with Clean Code standards.
+        </p>
+    </footer>
+
+    <!-- JavaScript File -->
+    <script src="script.js"></script>
+</body>
+</html>
