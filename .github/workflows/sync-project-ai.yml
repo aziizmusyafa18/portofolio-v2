@@ -40,10 +40,10 @@ jobs:
           git commit -m "chore: sync AI project descriptions"
           for attempt in 1 2 3 4 5; do
             git fetch origin main
-            if ! git rebase origin/main; then
-              git checkout --theirs ai-projects.json
+            if ! GIT_EDITOR=true git rebase origin/main; then
+              git checkout --theirs -- ai-projects.json
               git add ai-projects.json
-              GIT_EDITOR=true git rebase --continue
+              GIT_EDITOR=true git -c sequence.editor=true rebase --continue
             fi
             if git push origin HEAD:main; then
               echo "Generated descriptions pushed successfully."
