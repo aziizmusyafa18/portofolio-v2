@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+    <rect width="512" height="512" rx="128" fill="#11111b" />
+    <defs>
+        <linearGradient id="neon-cyan" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#00f2fe" />
+            <stop offset="100%" stop-color="#4facfe" />
+        </linearGradient>
+        <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+            <feGaussianBlur stdDeviation="12" result="blur" />
+            <feComposite in="SourceGraphic" in2="blur" operator="over" />
+        </filter>
+    </defs>
+    <g fill="none" stroke="url(#neon-cyan)" stroke-width="48" stroke-linecap="round" stroke-linejoin="round" filter="url(#glow)">
+        <polyline points="176,176 64,256 176,336" />
+        <line x1="304" y1="128" x2="208" y2="384" />
+        <polyline points="336,176 448,256 336,336" />
+    </g>
+</svg>
