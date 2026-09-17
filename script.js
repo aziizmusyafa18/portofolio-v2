@@ -276,6 +276,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const GITHUB_USERNAME = 'aziizmusyafa18';
     const GITHUB_API_URL = `https://api.github.com/users/${GITHUB_USERNAME}/repos?per_page=100&sort=updated&direction=desc`;
     const AI_PROJECTS_URL = `ai-projects.json?v=${Date.now()}`;
+    const REPOSITORIES_CACHE_KEY = 'portfolio-github-repositories';
     const portfolioGrid = document.getElementById('projects-grid');
     const githubStatus = document.getElementById('github-sync-status');
     const githubRefresh = document.getElementById('github-refresh');
@@ -381,13 +382,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 .filter(repository => !repository.private)
                 .map(repository => ({
                     ...repository,
-                    aiDescription: aiDescriptions[repository.full_name]?.aiGenerated
-                        ? aiDescriptions[repository.full_name].description
+                    aiDescription: aiDescriptions[repository.full_name]?.aiGenerated !== false
+                        ? aiDescriptions[repository.full_name]?.description
                         : null
                 }));
 
             if (!repositories.length) throw new Error('Belum ada repositori publik yang dapat ditampilkan.');
 
+            localStorage.setItem(REPOSITORIES_CACHE_KEY, JSON.stringify(repositories));
             portfolioGrid.replaceChildren(...repositories.map(createProjectCard));
             portfolioGrid.querySelectorAll('.project-card').forEach(card => {
                 attachCardTilt(card);
@@ -399,7 +401,23 @@ document.addEventListener('DOMContentLoaded', () => {
             if (githubStatus) githubStatus.textContent = `${repositories.length} proyek tersinkron dari GitHub • ${new Date().toLocaleTimeString('id-ID', { hour: '2-digit', minute: '2-digit' })}`;
         } catch (error) {
             console.error('Gagal memuat proyek GitHub:', error);
-            if (githubStatus) githubStatus.textContent = 'GitHub belum dapat dihubungi. Menampilkan data proyek yang tersimpan.';
+            try {
+                const cachedRepositories = JSON.parse(localStorage.getItem(REPOSITORIES_CACHE_KEY) || '[]');
+                if (cachedRepositories.length) {
+                    portfolioGrid.replaceChildren(...cachedRepositories.map(createProjectCard));
+                    portfolioGrid.querySelectorAll('.project-card').forEach(card => {
+                        attachCardTilt(card);
+                        revealObserver.observe(card);
+                    });
+                    applyPortfolioFilter(document.querySelector('.filter-btn.active')?.getAttribute('data-filter') || 'all');
+                    if (githubStatus) githubStatus.textContent = 'GitHub sedang dibatasi. Menampilkan data terakhir yang tersimpan.';
+                } else if (githubStatus) {
+                    githubStatus.textContent = 'GitHub belum dapat dihubungi. Coba lagi beberapa saat.';
+                }
+            } catch (cacheError) {
+                console.error('Gagal membaca cache project:', cacheError);
+                if (githubStatus) githubStatus.textContent = 'GitHub belum dapat dihubungi. Coba lagi beberapa saat.';
+            }
         } finally {
             githubSync?.classList.remove('is-loading');
             githubRefresh?.removeAttribute('disabled');
