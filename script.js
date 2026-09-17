@@ -381,7 +381,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 .filter(repository => !repository.private)
                 .map(repository => ({
                     ...repository,
-                    aiDescription: aiDescriptions[repository.full_name]?.description
+                    aiDescription: aiDescriptions[repository.full_name]?.aiGenerated
+                        ? aiDescriptions[repository.full_name].description
+                        : null
                 }));
 
             if (!repositories.length) throw new Error('Belum ada repositori publik yang dapat ditampilkan.');

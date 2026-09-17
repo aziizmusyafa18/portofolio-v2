@@ -61,20 +61,29 @@ async function generateDescription(repository, context) {
         `Kode:\n${context}`
     ].join('\n\n');
 
-    const response = await fetch(
-        `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${geminiKey}`,
-        {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-                contents: [{ parts: [{ text: prompt }] }],
-                generationConfig: { temperature: 0.2, maxOutputTokens: 220 }
-            })
+    for (let attempt = 1; attempt <= 3; attempt += 1) {
+        const response = await fetch(
+            `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${geminiKey}`,
+            {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    contents: [{ parts: [{ text: prompt }] }],
+                    generationConfig: { temperature: 0.2, maxOutputTokens: 220 }
+                })
+            }
+        );
+        if (response.ok) {
+            const result = await response.json();
+            const description = result.candidates?.[0]?.content?.parts?.[0]?.text?.trim();
+            if (description) return description;
+            throw new Error(`Gemini tidak mengembalikan teks untuk ${repository.full_name}`);
         }
-    );
-    if (!response.ok) throw new Error(`Gemini API ${response.status} untuk ${repository.full_name}`);
-    const result = await response.json();
-    return result.candidates?.[0]?.content?.parts?.[0]?.text?.trim() || repository.description || '';
+        if (![429, 500, 502, 503, 504].includes(response.status) || attempt === 3) {
+            throw new Error(`Gemini API ${response.status} untuk ${repository.full_name}`);
+        }
+        await new Promise(resolve => setTimeout(resolve, attempt * 3000));
+    }
 }
 
 const repositories = (await github(`/users/${username}/repos?per_page=100&sort=updated&direction=desc`))
@@ -86,14 +95,14 @@ for (const repository of repositories) {
         const context = await readRepositoryContext(repository);
         output[repository.full_name] = {
             description: await generateDescription(repository, context),
-            generatedAt: new Date().toISOString()
+            aiGenerated: true
         };
         console.error(`Generated: ${repository.full_name}`);
     } catch (error) {
         console.warn(`Fallback ${repository.full_name}: ${error.message}`);
         output[repository.full_name] = {
             description: repository.description || 'Project dan eksperimen pengembangan web.',
-            generatedAt: new Date().toISOString()
+            aiGenerated: false
         };
     }
 }
