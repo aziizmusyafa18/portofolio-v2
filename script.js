@@ -246,9 +246,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // =============================================================
     // 11. 3D CARD TILT EFFECT (Project Cards)
     // =============================================================
-    const projectCards = document.querySelectorAll('.project-card');
-
-    projectCards.forEach(card => {
+    function attachCardTilt(card) {
         card.addEventListener('mousemove', (e) => {
             const rect = card.getBoundingClientRect();
             const x = e.clientX - rect.left;
@@ -264,52 +262,186 @@ document.addEventListener('DOMContentLoaded', () => {
         card.addEventListener('mouseleave', () => {
             card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)';
         });
-    });
+    }
+
+    document.querySelectorAll('.project-card').forEach(attachCardTilt);
 
 
     // =============================================================
-    // 12. PORTFOLIO FILTERING WITH SMOOTH TRANSITIONS
+    // 12. GITHUB PROJECT SYNC
+    //     Repositori publik diambil langsung dari GitHub. Karena ini
+    //     frontend statis, jangan pernah menaruh personal access token
+    //     di sini.
+    // =============================================================
+    const GITHUB_USERNAME = 'aziizmusyafa18';
+    const GITHUB_API_URL = `https://api.github.com/users/${GITHUB_USERNAME}/repos?per_page=100&sort=updated&direction=desc`;
+    const AI_PROJECTS_URL = `ai-projects.json?v=${Date.now()}`;
+    const portfolioGrid = document.getElementById('projects-grid');
+    const githubStatus = document.getElementById('github-sync-status');
+    const githubRefresh = document.getElementById('github-refresh');
+    const githubSync = document.querySelector('.github-sync');
+
+    const githubIcon = '<svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>';
+    const externalIcon = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>';
+
+    function getRepositoryCategory(repository) {
+        const searchable = `${repository.name} ${repository.description || ''} ${(repository.topics || []).join(' ')}`.toLowerCase();
+        if (/undang|wedding|nikah/.test(searchable)) return { key: 'undangan', label: 'Undangan Digital' };
+        if (/warkop|kafe|cafe|coffee|restaurant|restoran/.test(searchable)) return { key: 'warkop', label: 'Warkop/Kafe' };
+        if (/chatbot|chat|gemini|ai|artificial|bot/.test(searchable)) return { key: 'chatbot', label: 'AI/Chatbot' };
+        if (/laravel|sistem|system|aplikasi|absen|akademik|spp|peminjaman|management|dashboard|php|express/.test(searchable)) return { key: 'sistem', label: 'Sistem Web' };
+        return { key: 'lainnya', label: 'Lainnya' };
+    }
+
+    function formatRepositoryName(name) {
+        return name.replace(/[-_]+/g, ' ').replace(/\b\w/g, character => character.toUpperCase());
+    }
+
+    function createProjectCard(repository, index) {
+        const category = getRepositoryCategory(repository);
+        const card = document.createElement('article');
+        card.className = 'project-card reveal-up';
+        card.dataset.category = category.key;
+        card.style.transitionDelay = `${Math.min(index * 0.05, 0.25)}s`;
+
+        const categoryElement = document.createElement('span');
+        categoryElement.className = 'project-category';
+        categoryElement.textContent = category.label;
+
+        const title = document.createElement('h3');
+        title.className = 'project-title';
+        title.textContent = formatRepositoryName(repository.name);
+
+        const description = document.createElement('p');
+        description.className = 'project-desc';
+        description.textContent = repository.aiDescription || repository.description || 'Repositori project dan eksperimen pengembangan web.';
+
+        const technologies = document.createElement('div');
+        technologies.className = 'project-tech';
+        const tags = [...new Set([repository.language, ...(repository.topics || [])].filter(Boolean))].slice(0, 5);
+        (tags.length ? tags : ['GitHub']).forEach(tag => {
+            const tagElement = document.createElement('span');
+            tagElement.className = 'tech-tag';
+            tagElement.textContent = tag;
+            technologies.appendChild(tagElement);
+        });
+
+        const links = document.createElement('div');
+        links.className = 'project-links';
+        const sourceLink = document.createElement('a');
+        sourceLink.className = 'project-link';
+        sourceLink.href = repository.html_url;
+        sourceLink.target = '_blank';
+        sourceLink.rel = 'noopener noreferrer';
+        sourceLink.innerHTML = `${githubIcon} Source Code`;
+        links.appendChild(sourceLink);
+
+        if (repository.homepage) {
+            const demoLink = document.createElement('a');
+            demoLink.className = 'project-link';
+            demoLink.href = repository.homepage;
+            demoLink.target = '_blank';
+            demoLink.rel = 'noopener noreferrer';
+            demoLink.innerHTML = `${externalIcon} Live Demo`;
+            links.appendChild(demoLink);
+        }
+
+        card.append(categoryElement, title, description, technologies, links);
+        return card;
+    }
+
+    function updateRepositoryCount(count) {
+        const repositoryStat = document.querySelector('.stat-label');
+        const repositoryNumber = [...document.querySelectorAll('.stat-card')].find(card => card.textContent.includes('Repositori GitHub'))?.querySelector('.stat-number');
+        if (repositoryNumber) {
+            repositoryNumber.dataset.target = count;
+            repositoryNumber.textContent = `${count}+`;
+        }
+        if (repositoryStat) repositoryStat.dataset.repositoryCount = count;
+    }
+
+    async function loadGitHubProjects() {
+        if (!portfolioGrid) return;
+        githubSync?.classList.add('is-loading');
+        githubRefresh?.setAttribute('disabled', 'disabled');
+        if (githubStatus) githubStatus.textContent = 'Memuat proyek terbaru dari GitHub...';
+
+        try {
+            const [response, aiResponse] = await Promise.all([
+                fetch(GITHUB_API_URL, {
+                    headers: { Accept: 'application/vnd.github+json' },
+                    cache: 'no-store'
+                }),
+                fetch(AI_PROJECTS_URL, { cache: 'no-store' }).catch(() => null)
+            ]);
+            if (!response.ok) throw new Error(`GitHub API mengembalikan status ${response.status}.`);
+
+            const aiDescriptions = aiResponse?.ok ? await aiResponse.json() : {};
+            const repositories = (await response.json())
+                .filter(repository => !repository.private)
+                .map(repository => ({
+                    ...repository,
+                    aiDescription: aiDescriptions[repository.full_name]?.description
+                }));
+
+            if (!repositories.length) throw new Error('Belum ada repositori publik yang dapat ditampilkan.');
+
+            portfolioGrid.replaceChildren(...repositories.map(createProjectCard));
+            portfolioGrid.querySelectorAll('.project-card').forEach(card => {
+                attachCardTilt(card);
+                revealObserver.observe(card);
+            });
+            updateRepositoryCount(repositories.length);
+            bindPortfolioFilters();
+            applyPortfolioFilter(document.querySelector('.filter-btn.active')?.getAttribute('data-filter') || 'all');
+            if (githubStatus) githubStatus.textContent = `${repositories.length} proyek tersinkron dari GitHub • ${new Date().toLocaleTimeString('id-ID', { hour: '2-digit', minute: '2-digit' })}`;
+        } catch (error) {
+            console.error('Gagal memuat proyek GitHub:', error);
+            if (githubStatus) githubStatus.textContent = 'GitHub belum dapat dihubungi. Menampilkan data proyek yang tersimpan.';
+        } finally {
+            githubSync?.classList.remove('is-loading');
+            githubRefresh?.removeAttribute('disabled');
+        }
+    }
+
+
+    // =============================================================
+    // 13. PORTFOLIO FILTERING WITH SMOOTH TRANSITIONS
     // =============================================================
     const filterButtons = document.querySelectorAll('.filter-btn');
-    const allProjectCards = document.querySelectorAll('.project-card');
+    function applyPortfolioFilter(filterValue) {
+        document.querySelectorAll('.project-card').forEach(card => {
+            const matches = filterValue === 'all' || card.getAttribute('data-category') === filterValue;
+            card.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
+            card.style.opacity = matches ? '1' : '0';
+            card.style.transform = matches ? 'scale(1) translateY(0)' : 'scale(0.94) translateY(12px)';
+            card.style.display = matches ? 'flex' : 'none';
+        });
+    }
 
-    filterButtons.forEach(btn => {
-        btn.addEventListener('click', () => {
-            filterButtons.forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
-
-            const filterValue = btn.getAttribute('data-filter');
-
-            allProjectCards.forEach(card => {
-                const category = card.getAttribute('data-category');
-                const matches = filterValue === 'all' || category === filterValue;
-
-                // Fade out
-                card.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
-                card.style.opacity = '0';
-                card.style.transform = 'scale(0.94) translateY(12px)';
-
-                setTimeout(() => {
-                    if (matches) {
-                        card.style.display = 'flex';
-                        // Force reflow then fade in
-                        requestAnimationFrame(() => {
-                            requestAnimationFrame(() => {
-                                card.style.opacity = '1';
-                                card.style.transform = 'scale(1) translateY(0)';
-                            });
-                        });
-                    } else {
-                        card.style.display = 'none';
-                    }
-                }, 280);
+    function bindPortfolioFilters() {
+        filterButtons.forEach(btn => {
+            if (btn.dataset.filterBound === 'true') return;
+            btn.dataset.filterBound = 'true';
+            btn.addEventListener('click', () => {
+                filterButtons.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                applyPortfolioFilter(btn.getAttribute('data-filter'));
             });
         });
-    });
+    }
+    bindPortfolioFilters();
+    const activeFilter = document.querySelector('.filter-btn.active')?.getAttribute('data-filter') || 'all';
+    githubRefresh?.addEventListener('click', loadGitHubProjects);
+    loadGitHubProjects();
+    applyPortfolioFilter(activeFilter);
+    setInterval(() => {
+        if (document.visibilityState === 'visible') loadGitHubProjects();
+    }, 5 * 60 * 1000);
 
 
     // =============================================================
-    // 13. CONTACT FORM — DUAL ACTION: EMAIL & WHATSAPP
+    // 14. CONTACT FORM — DUAL ACTION: EMAIL & WHATSAPP
     // =============================================================
 
     const MY_EMAIL = 'aziizmusyafa18@gmail.com';
@@ -453,4 +585,3 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
 }); // End DOMContentLoaded
-
